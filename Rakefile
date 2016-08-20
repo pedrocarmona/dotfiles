@@ -1,6 +1,6 @@
 require 'pathname'
 
-LINK_FILES = %w(bashrc bash_aliases bash_profile gemrc irbrc tmux.conf)
+LINK_FILES = %w(zshrc aliases gemrc irbrc tmux.conf)
 
 def stop_error(message)
   puts "ERROR: #{message}"
@@ -30,4 +30,11 @@ task :install do
   LINK_FILES.each do |file|
     _symlink("#{pwd}/#{file}", "#{home}/.#{file}")
   end
+end
+
+desc "Install brew dependencies"
+task :setup do
+  `brew install tmux`
+  `brew install macvim --override-system-vim`
+  `brew install reattach-to-user-namespace`
 end
