@@ -25,16 +25,17 @@ def pwd
   File.dirname(__FILE__)
 end
 
+desc "Install brew dependencies"
+task :dependencies do
+  `brew install tmux`
+  `brew install macvim --override-system-vim`
+  `brew install reattach-to-user-namespace`
+end
+
 desc "Install all dotfiles"
-task :install do
+task :install => :dependencies do
   LINK_FILES.each do |file|
     _symlink("#{pwd}/#{file}", "#{home}/.#{file}")
   end
 end
 
-desc "Install brew dependencies"
-task :setup do
-  `brew install tmux`
-  `brew install macvim --override-system-vim`
-  `brew install reattach-to-user-namespace`
-end
