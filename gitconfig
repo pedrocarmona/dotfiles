@@ -1,0 +1,32 @@
+[user]
+  name = Pedro Carmona
+  email = "pcarmona1990@gmail.com"
+[alias]
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  ctags = !.git/hooks/ctags
+
+  # Committing
+  amend = commit --amend
+  cav = commit --all --verbose
+  cv = commit --verbose
+  cvp = commit --verbose --patch
+  fixup = commit --amend --no-edit
+  uncommit = reset --soft HEAD^
+  co = checkout --patch
+
+  # Log
+  topology = log --oneline --graph --all --simplify-by-decoration
+  tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
+[color]
+  ui = auto
+[push]
+	default = upstream
+  followTags = true
+[branch]
+	autosetuprebase = always
+
+
