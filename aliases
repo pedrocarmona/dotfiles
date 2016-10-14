@@ -7,3 +7,53 @@ alias tma="tmux attach-session -t"
 alias tmc="clear && tmux clear-history"
 alias tmk="tmux kill-session"
 alias tm="tmux new -s"
+
+# Set pager to less
+alias more='less'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Google cloud platform
+function gci {
+ gcloud compute instances $@
+}
+
+function gcd {
+ gcloud compute disks $@
+}
+
+# Returns public IP of the instance: gci-ip INSTANCE-NAME
+function gci-ip {
+  gci describe $@ --format=json | \
+  jq --raw-output ".networkInterfaces[0].accessConfigs[0].natIP"
+}
+
+# Copied from https://github.com/holman/dotfiles/blob/master/system/keys.zsh
+alias pubkey="cat ~/.ssh/id_rsa.pub \
+  | pbcopy | echo '=> Public key copied to pasteboard.'"
+
+alias d="docker"
+
+# Short-cut to exec bash in container: dbash CONTAINER
+dbash(){ docker exec -ti $1 bash; }
+
+alias dc="\
+  COMPOSE_OPTIONS='-e UID=$UID -e SSH_AUTH_SOCK=$SSH_AUTH_SOCK' \
+  docker-compose \
+"
+
+alias dc-run="dc run --rm app"
+alias dcbash="dc run --rm --entrypoint=bash app"
+
+alias bundle="dc-run bundle"
+
+alias gc="\
+  docker run --rm -ti \
+    -v ~/.config:/.config \
+    -v ~/.config/gcloud/.kube:/.kube \
+    google/cloud-sdk \
+"
+
+alias own-it="sudo chown -Rv $UID:$GROUPS ."
