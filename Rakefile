@@ -27,9 +27,9 @@ end
 
 desc "Install brew dependencies"
 task :dependencies do
-  `brew install tmux`
-  `brew install macvim --override-system-vim`
-  `brew install reattach-to-user-namespace`
+  `brew install tmux` if RUBY_PLATFORM.include?("darwin")
+  `brew install macvim --override-system-vim` if RUBY_PLATFORM.include?("darwin")
+  `brew install reattach-to-user-namespace` if RUBY_PLATFORM.include?("darwin")
 end
 
 desc "Install all dotfiles"
