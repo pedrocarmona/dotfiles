@@ -1,6 +1,6 @@
 require 'pathname'
 
-LINK_FILES = %w(zshrc aliases gemrc irbrc tmux.conf)
+LINK_FILES = %w(zshrc aliases gemrc irbrc tmux.conf vimrc vimrc.bundles)
 
 def stop_error(message)
   puts "ERROR: #{message}"
@@ -27,9 +27,19 @@ end
 
 desc "Install brew dependencies"
 task :dependencies do
-  `brew install tmux` if RUBY_PLATFORM.include?("darwin")
-  `brew install macvim --override-system-vim` if RUBY_PLATFORM.include?("darwin")
-  `brew install reattach-to-user-namespace` if RUBY_PLATFORM.include?("darwin")
+  if RUBY_PLATFORM.include?("darwin")
+		`brew install tmux` 
+    `brew install macvim --override-system-vim` 
+    `brew install reattach-to-user-namespace`
+	elsif RUBY_PLATFORM.include?("linux")
+    `
+			if [ ! -e "$HOME"/.vim/autoload/plug.vim ]; then
+				curl -fLo "$HOME"/.vim/autoload/plug.vim --create-dirs \
+					https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+			fi
+			vim -u "$HOME"/.vimrc.bundles +PlugInstall +PlugClean! +qa
+		`
+	end
 end
 
 desc "Install all dotfiles"
