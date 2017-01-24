@@ -56,4 +56,7 @@ alias gc="\
     google/cloud-sdk \
 "
 
+# Other
+
 alias own-it="sudo chown -Rv $UID:$GROUPS ."
+alias search="sudo grep -lrnw -e"
