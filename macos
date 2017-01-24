@@ -24,6 +24,7 @@ ln -f -s $pwd/tmux.conf ~/.tmux.conf
 
 wget https://raw.githubusercontent.com/thoughtbot/dotfiles/master/vimrc -O vimrc
 ln -f -s $pwd/vimrc ~/.vimrc
+ln -f -s $pwd/vimrc.local ~/.vimrc.local
 wget https://raw.githubusercontent.com/thoughtbot/dotfiles/master/vimrc.bundles\
   -O vimrc.bundles
 ln -f -s $pwd/vimrc.bundles ~/.vimrc.bundles
