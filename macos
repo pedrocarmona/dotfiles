@@ -9,6 +9,8 @@ git clone --recursive https://github.com/sorin-ionescu/prezto.git ~/.zprezto
 
 pwd=$(pwd)
 
+ln -f -s $pwd/gitconfig ~/.gitconfig
+
 touch projects
 ln -f -s $pwd/projects ~/.projects
 
@@ -20,9 +22,10 @@ ln -f -s $pwd/irbrc ~/.irbrc
 
 ln -f -s $pwd/tmux.conf ~/.tmux.conf
 
-wget https://raw.githubusercontent.com/thoughtbot/dotfiles/master/vimrc
+wget https://raw.githubusercontent.com/thoughtbot/dotfiles/master/vimrc -O vimrc
 ln -f -s $pwd/vimrc ~/.vimrc
-wget https://raw.githubusercontent.com/thoughtbot/dotfiles/master/vimrc.bundles
+wget https://raw.githubusercontent.com/thoughtbot/dotfiles/master/vimrc.bundles\
+  -O vimrc.bundles
 ln -f -s $pwd/vimrc.bundles ~/.vimrc.bundles
 
 ln -f -s ~/.zprezto/runcoms/zlogin ~/.zlogin

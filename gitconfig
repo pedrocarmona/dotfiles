@@ -24,9 +24,9 @@
 [color]
   ui = auto
 [push]
-	default = upstream
+  default = upstream
   followTags = true
 [branch]
-	autosetuprebase = always
+  autosetuprebase = always
 
 
