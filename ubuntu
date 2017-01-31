@@ -1,20 +1,47 @@
 #!/bin/bash
 
-sudo apt-get install ruby
 sudo apt-get install zsh
 sudo apt-get install htop
 sudo apt-get install git
+sudo apt-get install wget
+sudo apt-get install tmux
+sudo apt-get install vim
 
-zsh
+git clone --recursive https://github.com/sorin-ionescu/prezto.git ~/.zprezto
 
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+pwd=$(pwd)
 
-setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-done
+ln -f -s $pwd/gitconfig ~/.gitconfig
 
-chsh -s /bin/zsh
+touch projects
+ln -f -s $pwd/projects ~/.projects
 
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+ln -f -s $pwd/zshrc ~/.zshrc
+ln -f -s $pwd/aliases ~/.aliases
+
+ln -f -s $pwd/gemrc ~/.gemrc
+ln -f -s $pwd/irbrc ~/.irbrc
+
+ln -f -s $pwd/tmux.conf ~/.tmux.conf
+
+wget https://raw.githubusercontent.com/thoughtbot/dotfiles/master/vimrc -O vimrc
+ln -f -s $pwd/vimrc ~/.vimrc
+ln -f -s $pwd/vimrc.local ~/.vimrc.local
+wget https://raw.githubusercontent.com/thoughtbot/dotfiles/master/vimrc.bundles\
+  -O vimrc.bundles
+ln -f -s $pwd/vimrc.bundles ~/.vimrc.bundles
+
+ln -f -s ~/.zprezto/runcoms/zlogin ~/.zlogin
+ln -f -s ~/.zprezto/runcoms/zlogout ~/.zlogout 
+ln -f -s  ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc
+ln -f -s  ~/.zprezto/runcoms/zprofile ~/.zprofile
+ln -f -s ~/.zprezto/runcoms/zshenv ~/.zshenv 
+
+if [ ! -e "$HOME"/.vim/autoload/plug.vim ]; then
+	curl -fLo "$HOME"/.vim/autoload/plug.vim --create-dirs \
+		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+
+vim -u "$HOME"/.vimrc.bundles +PlugInstall +PlugClean! +qa
+
+

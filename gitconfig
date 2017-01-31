@@ -21,6 +21,9 @@
   # Log
   topology = log --oneline --graph --all --simplify-by-decoration
   tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
+  # Update
+  up = "!git fetch -p; git merge --ff-only @{u}"
 [color]
   ui = auto
 [push]
@@ -30,3 +33,5 @@
   autosetuprebase = always
 
 
+[core]
+	editor = vim
