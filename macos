@@ -2,10 +2,13 @@
 
 brew install zsh
 brew install tmux
-brew install macvim --override-system-vim
+brew install vim
 brew install wget
 
 git clone --recursive https://github.com/sorin-ionescu/prezto.git ~/.zprezto
+cd ~/.zprezto
+git submodule update --init --recursive
+cd -
 
 pwd=$(pwd)
 
@@ -14,7 +17,6 @@ ln -f -s $pwd/gitconfig ~/.gitconfig
 touch projects
 ln -f -s $pwd/projects ~/.projects
 
-ln -f -s $pwd/zshrc ~/.zshrc
 ln -f -s $pwd/aliases ~/.aliases
 
 ln -f -s $pwd/gemrc ~/.gemrc
@@ -31,9 +33,10 @@ ln -f -s $pwd/vimrc.bundles ~/.vimrc.bundles
 
 ln -f -s ~/.zprezto/runcoms/zlogin ~/.zlogin
 ln -f -s ~/.zprezto/runcoms/zlogout ~/.zlogout
-ln -f -s  ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc
 ln -f -s  ~/.zprezto/runcoms/zprofile ~/.zprofile
 ln -f -s ~/.zprezto/runcoms/zshenv ~/.zshenv
+ln -f -s  $pwd/zpreztorc ~/.zpreztorc
+ln -f -s  $pwd/zshrc ~/.zshrc
 
 if [ ! -e "$HOME"/.vim/autoload/plug.vim ]; then
 	curl -fLo "$HOME"/.vim/autoload/plug.vim --create-dirs \
@@ -41,7 +44,6 @@ if [ ! -e "$HOME"/.vim/autoload/plug.vim ]; then
 fi
 
 vim -u "$HOME"/.vimrc.bundles +PlugInstall +PlugClean! +qa
-
 
 
 echo "Setting osx defaults"

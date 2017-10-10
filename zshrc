@@ -58,3 +58,5 @@ export EDITOR='vim'
 stty -ixon
 
 export PATH
+
+cdpath=($HOME/Developer)
