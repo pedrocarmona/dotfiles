@@ -46,6 +46,25 @@ fi
 vim -u "$HOME"/.vimrc.bundles +PlugInstall +PlugClean! +qa
 
 
+echo "Mac Apps"
+
+brew tap caskroom/cask
+brew tap caskroom/versions
+
+brew cask install virtualbox
+brew cask install vagrant
+brew cask install sublime-text
+brew cask install slack
+brew cask install google-chrome
+
+echo "Use Docker4Mac"
+
+# ensure docker-machine uninstalled
+brew uninstall docker-machine
+brew uninstall docker-engine
+
+brew cask install docker
+
 echo "Setting osx defaults"
 
 # Always open everything in Finder's list view.
