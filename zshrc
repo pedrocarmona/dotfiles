@@ -12,8 +12,6 @@ fi
 
 # Customize to your needs...
 
-prompt paradox
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -60,3 +58,6 @@ stty -ixon
 export PATH
 
 cdpath=($HOME/Developer)
+
+set bell-style none
+

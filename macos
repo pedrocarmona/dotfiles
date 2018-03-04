@@ -8,6 +8,10 @@ brew install wget
 git clone --recursive https://github.com/sorin-ionescu/prezto.git ~/.zprezto
 cd ~/.zprezto
 git submodule update --init --recursive
+git clone https://github.com/belak/prezto-contrib contrib
+cd contrib
+git submodule init
+git submodule update
 cd -
 
 pwd=$(pwd)
@@ -65,10 +69,13 @@ brew uninstall docker-engine
 
 brew cask install docker
 
-echo "Setting osx defaults"
+echo "rails development"
 
-# Always open everything in Finder's list view.
-defaults write com.apple.Finder FXPreferredViewStyle Nlsv
+brew install rbenv
+brew install postgresql
+brew install qt@5.5
+
+echo "Setting osx defaults"
 
 # Show the ~/Library folder.
 chflags nohidden ~/Library
@@ -76,18 +83,43 @@ chflags nohidden ~/Library
 # This will show all hidden files
 defaults write com.apple.finder AppleShowAllFiles YES
 
-# default apple: 0
-defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
-
-# default apple: 6
-defaults write NSGlobalDomain KeyRepeat -int 6
-
-# default apple: 25
-defaults write NSGlobalDomain InitialKeyRepeat -int 25
-
 # Trackpad defaults
 defaults -currentHost write -globalDomain com.apple.trackpad.fourFingerVertSwipeGesture -int 0
 defaults -currentHost write -globalDomain com.apple.mouse.tapBehavior -int 1
+
+# Disable press-and-hold for keys in favor of key repeat.
+defaults write -g ApplePressAndHoldEnabled -bool false
+
+# Always open everything in Finder's list view
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+
+# Show the ~/Library folder.
+chflags nohidden ~/Library
+
+# Set a really fast key repeat.
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
+defaults write NSGlobalDomain KeyRepeat -int 2
+
+# Set the Finder prefs for showing a few different volumes on the Desktop.
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+
+# Finder: show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Run the screensaver if we're in the bottom-left hot corner.
+defaults write com.apple.dock wvous-bl-corner -int 5
+defaults write com.apple.dock wvous-bl-modifier -int 0
+
+# Disable Notification Center and remove the menu bar icon
+launchctl unload  \
+  -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist \
+  2> /dev/null
+#
+# Keyboard shortcuts
+#
+#   ⌘⇧m   - to zoom the window
+defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add "Zoom" "@\$m"
 
 echo "Restart finder to reload config"
 
