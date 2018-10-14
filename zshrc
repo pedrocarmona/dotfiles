@@ -50,6 +50,9 @@ HIST_STAMPS="yyyy-mm-dd"
 source $HOME/.aliases
 source $HOME/.projects
 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 export EDITOR='vim'
 
 # Allow C-s to work for saving in CLI vim
@@ -61,3 +64,9 @@ cdpath=($HOME/Developer)
 
 set bell-style none
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/opt/google-cloud-sdk/path.zsh.inc' ]; then source '/opt/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/opt/google-cloud-sdk/completion.zsh.inc' ]; then source '/opt/google-cloud-sdk/completion.zsh.inc'; fi
