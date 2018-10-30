@@ -70,3 +70,4 @@ if [ -f '/opt/google-cloud-sdk/path.zsh.inc' ]; then source '/opt/google-cloud-s
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/opt/google-cloud-sdk/completion.zsh.inc' ]; then source '/opt/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
