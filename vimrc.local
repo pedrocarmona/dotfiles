@@ -14,6 +14,7 @@ function! TrimWhiteSpace()
     ''
 endfunction
 
+syntax enable
 colorscheme monokai
 
 autocmd! FileWritePre * :call TrimWhiteSpace()
