@@ -1,0 +1,12 @@
+#!/bin/bash
+
+ip=$(curl $CLOUDBOOK_IP_RESOLVER | jq --raw-output '.ip')
+
+doctl compute firewall update $CLOUDBOOK_FIREWALL_ID --name cloudbook-pro --inbound-rules protocol:tcp,ports:22,address:$ip/32
+doctl compute firewall add-rules $CLOUDBOOK_FIREWALL_ID --inbound-rules protocol:udp,ports:500,address:$ip/32
+doctl compute firewall add-rules $CLOUDBOOK_FIREWALL_ID --inbound-rules protocol:udp,ports:4500,address:$ip/32
+doctl compute firewall add-rules $CLOUDBOOK_FIREWALL_ID --inbound-rules protocol:tcp,ports:500,address:$ip/32
+doctl compute firewall add-rules $CLOUDBOOK_FIREWALL_ID --inbound-rules protocol:tcp,ports:4500,address:$ip/32
+doctl compute firewall add-droplets $CLOUDBOOK_FIREWALL_ID --droplet-ids $CLOUDBOOK_DROPLET_ID
+
+doctl compute firewall get $CLOUDBOOK_FIREWALL_ID

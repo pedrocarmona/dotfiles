@@ -98,6 +98,10 @@ brew install python
 sudo easy_install pip
 pip install virtualenv
 
+echo "cloud"
+
+brew install doctl
+
 echo "Setting osx defaults"
 
 # Show the ~/Library folder.

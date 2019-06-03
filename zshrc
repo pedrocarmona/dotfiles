@@ -76,3 +76,5 @@ export PATH="/Users/$USER/Library/Python/2.7/bin:$PATH"
 
 export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/opt/openssl/lib/"
 
+export PATH=$PATH:~/.npm-packages/bin/
+
