@@ -1,12 +1,15 @@
 #!/bin/bash
 
+# pre install:
+# XCode, brew, visual studio code, brew install coreutils.
+
 SCRIPT=$(realpath -s $0)
 SCRIPTPATH=$(dirname $SCRIPT)
 
 # brew install zsh
-# brew install tmux
-# brew install vim
-# brew install wget
+brew install tmux
+brew install vim
+brew install wget
 
 # git clone --recursive https://github.com/sorin-ionescu/prezto.git ~/.zprezto
 # cd ~/.zprezto
@@ -47,11 +50,11 @@ wget https://raw.githubusercontent.com/thoughtbot/dotfiles/master/vimrc.bundles\
   -O vimrc.bundles
 ln -f -s "$SCRIPTPATH/vimrc.bundles" ~/.vimrc.bundles
 
-ln -f -s ~/.zprezto/runcoms/zlogin ~/.zlogin
-ln -f -s ~/.zprezto/runcoms/zlogout ~/.zlogout
-ln -f -s  ~/.zprezto/runcoms/zprofile ~/.zprofile
-ln -f -s ~/.zprezto/runcoms/zshenv ~/.zshenv
-ln -f -s "$SCRIPTPATH/zpreztorc" ~/.zpreztorc
+#ln -f -s ~/.zprezto/runcoms/zlogin ~/.zlogin
+#ln -f -s ~/.zprezto/runcoms/zlogout ~/.zlogout
+#ln -f -s  ~/.zprezto/runcoms/zprofile ~/.zprofile
+#ln -f -s ~/.zprezto/runcoms/zshenv ~/.zshenv
+#ln -f -s "$SCRIPTPATH/zpreztorc" ~/.zpreztorc
 ln -f -s "$SCRIPTPATH/zshrc" ~/.zshrc
 
 if [ ! -e "$HOME"/.vim/autoload/plug.vim ]; then
@@ -65,32 +68,28 @@ mkdir -p ~/.vim/colors
 wget https://raw.githubusercontent.com/sickill/vim-monokai/master/colors/monokai.vim \
   -O ~/.vim/colors/monokai.vim
 
-exit 1
-
 echo "Mac Apps"
 
 brew tap caskroom/cask
 brew tap caskroom/versions
 
-brew cask install virtualbox
-brew cask install vagrant
-brew cask install sublime-text
-brew cask install slack
-brew cask install google-chrome
+#brew cask install virtualbox
+#brew cask install slack
 
-echo "Use Docker4Mac"
+# echo "Use Docker4Mac"
 
-# ensure docker-machine uninstalled
-brew uninstall docker-machine
-brew uninstall docker-engine
+## ensure docker-machine uninstalled
+#brew uninstall docker-machine
+#brew uninstall docker-engine
 
-brew cask install docker
+#brew cask install docker
 
 echo "rails development"
 
 brew install rbenv
 brew install postgresql
-brew install qt@5.5
+# brew install qt@5.5
+echo "follow https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit#macos-high-sierra-1013-macos-sierra-1012-el-capitan-1011-and-yosemite-1010"
 
 echo "python development"
 
@@ -134,14 +133,6 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
-# Run the screensaver if we're in the bottom-left hot corner.
-defaults write com.apple.dock wvous-bl-corner -int 5
-defaults write com.apple.dock wvous-bl-modifier -int 0
-
-# Disable Notification Center and remove the menu bar icon
-launchctl unload  \
-  -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist \
-  2> /dev/null
 #
 # Keyboard shortcuts
 #
