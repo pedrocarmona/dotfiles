@@ -46,15 +46,15 @@ ln -f -s "$SCRIPTPATH/tmux.conf" ~/.tmux.conf
 wget https://raw.githubusercontent.com/thoughtbot/dotfiles/master/vimrc -O vimrc
 ln -f -s "$SCRIPTPATH/vimrc" ~/.vimrc
 ln -f -s "$SCRIPTPATH/vimrc.local" ~/.vimrc.local
-wget https://raw.githubusercontent.com/thoughtbot/dotfiles/master/vimrc.bundles\
-  -O vimrc.bundles
+wget https://raw.githubusercontent.com/thoughtbot/dotfiles/master/vimrc.bundles -O vimrc.bundles
 ln -f -s "$SCRIPTPATH/vimrc.bundles" ~/.vimrc.bundles
+ln -f -s "$SCRIPTPATH/vimrc.bundles.local" ~/.vimrc.bundles.local
 
-#ln -f -s ~/.zprezto/runcoms/zlogin ~/.zlogin
-#ln -f -s ~/.zprezto/runcoms/zlogout ~/.zlogout
-#ln -f -s  ~/.zprezto/runcoms/zprofile ~/.zprofile
-#ln -f -s ~/.zprezto/runcoms/zshenv ~/.zshenv
-#ln -f -s "$SCRIPTPATH/zpreztorc" ~/.zpreztorc
+ln -f -s ~/.zprezto/runcoms/zlogin ~/.zlogin
+ln -f -s ~/.zprezto/runcoms/zlogout ~/.zlogout
+ln -f -s  ~/.zprezto/runcoms/zprofile ~/.zprofile
+ln -f -s ~/.zprezto/runcoms/zshenv ~/.zshenv
+ln -f -s "$SCRIPTPATH/zpreztorc" ~/.zpreztorc
 ln -f -s "$SCRIPTPATH/zshrc" ~/.zshrc
 
 if [ ! -e "$HOME"/.vim/autoload/plug.vim ]; then
@@ -68,7 +68,7 @@ mkdir -p ~/.vim/colors
 wget https://raw.githubusercontent.com/sickill/vim-monokai/master/colors/monokai.vim \
   -O ~/.vim/colors/monokai.vim
 
-echo "Mac Apps"
+# echo "Mac Apps"
 
 brew tap caskroom/cask
 brew tap caskroom/versions
@@ -93,13 +93,13 @@ echo "follow https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-an
 
 echo "python development"
 
-brew install python
-sudo easy_install pip
-pip install virtualenv
+# brew install python
+# sudo easy_install pip
+ # pip install virtualenv
 
 echo "cloud"
 
-brew install doctl
+# brew install doctl
 
 echo "Setting osx defaults"
 
@@ -143,4 +143,4 @@ echo "Restart finder to reload config"
 
 killall -KILL Finder
 
-chsh -s /bin/zsh
+# chsh -s /bin/zsh
