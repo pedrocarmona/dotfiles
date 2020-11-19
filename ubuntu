@@ -7,8 +7,6 @@ sudo apt-get install wget
 sudo apt-get install tmux
 sudo apt-get install vim
 
-git clone --recursive https://github.com/sorin-ionescu/prezto.git ~/.zprezto
-
 pwd=$(pwd)
 
 ln -f -s $pwd/gitconfig ~/.gitconfig
@@ -30,12 +28,6 @@ ln -f -s $pwd/vimrc.local ~/.vimrc.local
 wget https://raw.githubusercontent.com/thoughtbot/dotfiles/master/vimrc.bundles\
   -O vimrc.bundles
 ln -f -s $pwd/vimrc.bundles ~/.vimrc.bundles
-
-ln -f -s ~/.zprezto/runcoms/zlogin ~/.zlogin
-ln -f -s ~/.zprezto/runcoms/zlogout ~/.zlogout 
-ln -f -s  ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc
-ln -f -s  ~/.zprezto/runcoms/zprofile ~/.zprofile
-ln -f -s ~/.zprezto/runcoms/zshenv ~/.zshenv 
 
 if [ ! -e "$HOME"/.vim/autoload/plug.vim ]; then
 	curl -fLo "$HOME"/.vim/autoload/plug.vim --create-dirs \
