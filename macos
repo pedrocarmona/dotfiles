@@ -15,7 +15,8 @@ brew install starship
 mkdir -p ~/.zsh/
 ln -f -s "$SCRIPTPATH/git-completion.bash" ~/.zsh/git-completion.bash
 ln -f -s "$SCRIPTPATH/git-completion.zsh" ~/.zsh/_git
-
+mkdir -p ~/.config
+ln -f -s "$SCRIPTPATH/starship.toml" ~/.config/starship.toml
 ln -f -s "$SCRIPTPATH/zshrc" ~/.zshrc
 
 cd ~/Downloads
