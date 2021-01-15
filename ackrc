@@ -1,0 +1,17 @@
+--ignore-dir=.coverage
+--ignore-dir=temp
+--ignore-dir=log
+--ignore-dir=tmp
+--ignore-dir=public
+--ignore-dir=.bundle
+--ignore-dir=.helm
+--ignore-dir=.kube
+--ignore-dir=.git
+--ignore-dir=.pip
+--ignore-dir=.ansible_roles
+--ignore-dir=.ipynb_checkpoints
+--ignore-dir=.m2
+--ignore-file=ext:log
+--ignore-file=ext:sql
+--ignore-file=ext:csv
+--ignore-file=ext:js

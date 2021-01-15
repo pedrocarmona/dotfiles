@@ -1,9 +1,0 @@
-Plug 'scrooloose/nerdtree'
-
-Plug 'Xuyuanp/nerdtree-git-plugin'
-
-Plug 'airblade/vim-gitgutter'
-
-Plug 'unkiwii/vim-nerdtree-sync'
-
-Plug 'thoughtbot/vim-rspec'
