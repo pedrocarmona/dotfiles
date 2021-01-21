@@ -39,3 +39,51 @@ let g:syntastic_auto_loc_list = 0
 let g:ctrlp_max_depth = 1000
 let g:ctrlp_max_files = 0
 
+map <leader>f :NERDTreeFind<cr>
+
+function! TagP()
+  let g:ctrlp_default_input = expand('<cword>')
+  CtrlPTag
+  let g:ctrlp_default_input = ''
+endfunction
+command! TagP call TagP()
+noremap <Leader>pt :TagP<CR>
+
+:nnoremap <Leader>c :let @+=expand('%:p')<CR>
+
+" Exit terminal mode with escape
+:tnoremap <Esc> <C-\><C-n>
+
+let g:vroom_use_vimshell = 1
+
+command! -range=0 -complete=shellcmd -nargs=+ VimShellExecute
+      \ call neoterm#do({ 'cmd': <q-args>, 'target': <count>, 'mod': <q-mods> })
+
+"=======================================
+
+function! ExitNormalMode()
+    unmap <buffer> <silent> <RightMouse>
+    call feedkeys("a")
+endfunction
+
+function! EnterNormalMode()
+    if &buftype == 'terminal' && mode('') == 't'
+        call feedkeys("\<c-w>N")
+        call feedkeys("\<c-y>")
+        map <buffer> <silent> <RightMouse> :call ExitNormalMode()<CR>
+    endif
+endfunction
+
+tmap <silent> <ScrollWheelUp> <c-w>:call EnterNormalMode()<CR>
+
+"============================================
+
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") |  execute "wincmd l" | endif
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") |  split | endif
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") |  execute "wincmd j" | endif
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") |  execute "resize " . (winheight(0) * 2/3) | endif
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") |  execute "T pwd" | endif
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") |  execute "wincmd k" | endif
+
+autocmd BufWritePre *_spec.rb execute ':VroomRunTestFile'
+

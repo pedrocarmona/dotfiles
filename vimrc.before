@@ -52,4 +52,4 @@ autocmd BufWritePre *.py execute ':Black'
 " To run Isort on save
 autocmd BufWritePre *.py execute ':Isort'
 
-let g:hardtime_default_on = 1
+let g:hardtime_default_on = 0

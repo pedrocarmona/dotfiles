@@ -21,7 +21,7 @@
   # Log
   topology = log --oneline --graph --all --simplify-by-decoration
   tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
-  nf = diff --name-status master
+  nf = diff --name-status main
 
   # Update
   up = "!git fetch -p; git merge --ff-only @{u}"
@@ -29,7 +29,7 @@
   upper = reset --hard @{u}
 
   # remove merged branches
-  rmb = "!f() { git branch --merged | grep -v "master" | while read i; do git branch -d $i; done; }; f"
+  rmb = "!f() { git branch --merged | grep -v "main" | while read i; do git branch -d $i; done; }; f"
 
 [color]
   ui = auto
