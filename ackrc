@@ -14,4 +14,3 @@
 --ignore-file=ext:log
 --ignore-file=ext:sql
 --ignore-file=ext:csv
---ignore-file=ext:js

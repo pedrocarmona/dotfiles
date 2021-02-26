@@ -78,3 +78,9 @@ alias docker-clean=' \
 
 alias own-it="sudo chown -Rv $UID:$GROUPS ."
 alias search="sudo grep -lrnw -e"
+
+kill_rails() {
+  lsof -i :3000 | grep 'ruby' | awk '{print $2}' | sort | uniq | xargs kill -9
+}
+
+alias rspec='bundle exec spring rspec'

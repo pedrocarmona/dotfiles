@@ -21,7 +21,7 @@
   # Log
   topology = log --oneline --graph --all --simplify-by-decoration
   tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
-  nf = diff --name-status main
+  diff2main = diff --name-status main...
 
   # Update
   up = "!git fetch -p; git merge --ff-only @{u}"
@@ -30,7 +30,11 @@
 
   # remove merged branches
   rmb = "!f() { git branch --merged | grep -v "main" | while read i; do git branch -d $i; done; }; f"
+  rmgone = "!rmgone() { git fetch -p && for branch in $(git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}'); do git branch -D $branch; done }; rmgone"
 
+  # test
+
+  rspec = "!(git diff --name-only HEAD && git diff --name-only main...) | grep _spec.rb | grep -v 'spec/shared_examples' | xargs bin/rspec"
 [color]
   ui = auto
 [push]

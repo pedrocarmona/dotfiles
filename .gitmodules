@@ -1,0 +1,30 @@
+[submodule "janus/coc-solargraph"]
+	path = janus/coc-solargraph
+	url = https://github.com/neoclide/coc-solargraph
+[submodule "janus/coc.nvim"]
+	path = janus/coc.nvim
+	url = https://github.com/neoclide/coc.nvim
+[submodule "janus/quickr-cscope.vim"]
+	path = janus/quickr-cscope.vim
+	url = https://github.com/ronakg/quickr-cscope.vim
+[submodule "janus/vim-i18n"]
+	path = janus/vim-i18n
+	url = https://github.com/stefanoverna/vim-i18n
+[submodule "janus/vim-multiple-cursors"]
+	path = janus/vim-multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors
+[submodule "janus/vim-rfactory"]
+	path = janus/vim-rfactory
+	url = https://github.com/christoomey/vim-rfactory
+[submodule "janus/coc-tailwindcss"]
+	path = janus/coc-tailwindcss
+	url = https://github.com/iamcco/coc-tailwindcss
+[submodule "janus/vim-javascript"]
+	path = janus/vim-javascript
+	url = https://github.com/pangloss/vim-javascript
+[submodule "janus/vim-projectionist"]
+	path = janus/vim-projectionist
+	url = https://github.com/tpope/vim-projectionist
+[submodule "janus/vim-rspec"]
+	path = janus/vim-rspec
+	url = https://github.com/thoughtbot/vim-rspec

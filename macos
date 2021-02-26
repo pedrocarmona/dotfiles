@@ -50,19 +50,10 @@ ln -f -s "$SCRIPTPATH/ackrc" ~/.ackrc
 
 bash janus-bootstrap.sh
 
+ln -f -s "$SCRIPTPATH/janus" ~/.janus
 ln -f -s "$SCRIPTPATH/vimrc.after" ~/.vimrc.after
 ln -f -s "$SCRIPTPATH/vimrc.before" ~/.vimrc.before
 
-#mkdir -p ~/.vim/colors
-#wget https://raw.githubusercontent.com/sickill/vim-monokai/master/colors/monokai.vim \
-#  -O ~/.vim/colors/monokai.vim
-
-# echo "Mac Apps"
-
-# brew tap caskroom/cask
-# brew tap caskroom/versions
-# brew cask install virtualbox
-# brew cask install slack
 
 echo "rails development"
 

@@ -4,6 +4,14 @@ My dotfiles
 
 ## Usage
 
+```
+mkdir -p ~/Developer
+cd ~/Developer
+git clone git@github.com:pedrocarmona/dotfiles.git
+cd dotfiles
+git submodule update --init --recursive
+```
+
 In macos:
 
 ./macos
