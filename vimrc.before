@@ -1,6 +1,9 @@
 " Force Vim to use 256 colors
 set t_Co=256
 
+set background=dark
+colorscheme PaperColor
+
 " Set doc format as default for rspec when running from vroom
 "let g:vroom_spec_command = 'rspec --fail-fast'
 "let g:vroom_use_vimux = 1
@@ -60,3 +63,6 @@ let g:coc_global_extensions = ['coc-solargraph']
 
 let g:session_autosave = 'yes'
 let g:session_autoload = 'yes'
+
+syntax on
+set number

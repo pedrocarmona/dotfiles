@@ -34,22 +34,13 @@ let g:syntastic_mode_map = {'mode': 'active'}
 let g:syntastic_auto_loc_list = 0
 
 
-" Set controlP
-let g:ctrlp_max_depth = 1000
-let g:ctrlp_max_files = 0
 
 map <leader>j :NERDTreeFind<cr>
 
 set foldmethod=indent   
 set nofoldenable
 
-function! TagP()
-  let g:ctrlp_default_input = expand('<cword>')
-  CtrlPTag
-  let g:ctrlp_default_input = ''
-endfunction
-command! TagP call TagP()
-noremap <Leader>pt :TagP<CR>
+
 
 :nnoremap <Leader>c :let @+=expand('%:p')<CR>
 
@@ -67,7 +58,26 @@ autocmd BufWritePre *.rb,*.js :FixWhitespace
 set autoread
 
 setlocal foldmethod=syntax
-set foldcolumn=1
+set foldcolumn=2
+
+
+"============================================
+" ctrlp.vim
+"============================================
+
+
+" iterm2 > run co process > `echo mvim  --remote-silent \1 +\2`
+
+autocmd BufWinEnter,BufNewFile * silent tabo
+
+
+"============================================
+" ctrlp.vim
+"============================================
+
+let g:ctrlp_user_command = ['.git/', 'git ls-files --cached --others  --exclude-standard %s']
+
+let g:ctrlp_default_input = expand('<cword>')
 
 "============================================
 " vim-rspec

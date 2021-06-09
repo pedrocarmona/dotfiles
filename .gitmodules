@@ -28,3 +28,18 @@
 [submodule "janus/vim-rspec"]
 	path = janus/vim-rspec
 	url = https://github.com/thoughtbot/vim-rspec
+[submodule "janus/auto-dark-mode.vim"]
+	path = janus/auto-dark-mode.vim
+	url = git@github.com:L-TChen/auto-dark-mode.vim.git
+[submodule "janus/papercolor-theme"]
+	path = janus/papercolor-theme
+	url = git@github.com:NLKNguyen/papercolor-theme.git
+[submodule "janus/vim-abolish"]
+	path = janus/vim-abolish
+	url = git://github.com/tpope/vim-abolish.git
+[submodule "janus/open-browser-github.vim"]
+	path = janus/open-browser-github.vim
+	url = git@github.com:tyru/open-browser-github.vim.git
+[submodule "janus/open-browser.vim"]
+	path = janus/open-browser.vim
+	url = git@github.com:tyru/open-browser.vim.git

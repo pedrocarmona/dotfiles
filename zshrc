@@ -45,4 +45,6 @@ autoload -Uz compinit && compinit
 
 export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 eval "$(starship init zsh)"

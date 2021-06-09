@@ -83,4 +83,8 @@ kill_rails() {
   lsof -i :3000 | grep 'ruby' | awk '{print $2}' | sort | uniq | xargs kill -9
 }
 
-alias rspec='bundle exec spring rspec'
+alias rspec='FPROF=1 FDOC=1 bundle exec spring rspec'
+
+pg_table() {
+  psql postgres -d myapp_development -c "\d+ $@"
+}
