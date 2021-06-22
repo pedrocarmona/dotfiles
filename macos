@@ -6,6 +6,8 @@
 SCRIPT=$(realpath -s $0)
 SCRIPTPATH=$(dirname $SCRIPT)
 
+ln -f -s "$SCRIPTPATH/gvimrc.after" ~/.gvimrc.after
+
 brew install tmux
 brew install vim
 brew install wget
@@ -53,7 +55,7 @@ bash janus-bootstrap.sh
 ln -f -s "$SCRIPTPATH/janus" ~/.janus
 ln -f -s "$SCRIPTPATH/vimrc.after" ~/.vimrc.after
 ln -f -s "$SCRIPTPATH/vimrc.before" ~/.vimrc.before
-
+ln -f -s "$SCRIPTPATH/gvimrc.after" ~/.gvimrc.after
 
 echo "rails development"
 

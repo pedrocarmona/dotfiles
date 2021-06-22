@@ -1,3 +1,5 @@
+let g:ackprg="ag --nocolor --nogroup --column"
+
 " Search for word under cursor in a project
 nmap <silent> <leader>s :Ack <C-R><C-W><CR>
 
@@ -182,3 +184,11 @@ nmap <leader>f  <Plug>(coc-format-selected)
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
 
+let macvim_skip_colorscheme=1
+set background=dark
+colorscheme solarized
+syntax on
+
+let g:snipMate = get(g:, 'snipMate', {}) " Allow for vimrc re-sourcing
+let g:snipMate.scope_aliases = {}
+let g:snipMate.scope_aliases['ruby'] = 'ruby,rails'

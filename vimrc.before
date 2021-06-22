@@ -1,8 +1,6 @@
 " Force Vim to use 256 colors
 set t_Co=256
 
-set background=dark
-colorscheme PaperColor
 
 " Set doc format as default for rspec when running from vroom
 "let g:vroom_spec_command = 'rspec --fail-fast'
@@ -43,9 +41,6 @@ let g:vim_isort_config_overrides = {
 " Open help in new tab
 cabbrev help tab help
 
-" Disable some plugins
-call janus#disable_plugin('snipmate')"
-
 " Just point to some folder to ignore installation
 let g:black_virtualenv="~/.janus/black"
 
@@ -59,7 +54,7 @@ let g:hardtime_default_on = 0
 
 call janus#disable_plugin('vroom')
 
-let g:coc_global_extensions = ['coc-solargraph']
+let g:coc_global_extensions = ['coc-solargraph', 'coc-snippets']
 
 let g:session_autosave = 'yes'
 let g:session_autoload = 'yes'
